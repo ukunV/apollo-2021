@@ -4,15 +4,6 @@ import { useQuery } from "@apollo/react-hooks";
 import Movie from "../components/Movie";
 import styled from "styled-components";
 
-const GET_MOVIES = gql`
-  {
-    movies {
-      id
-      medium_cover_image
-    }
-  }
-`;
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -57,8 +48,18 @@ const Movies = styled.div`
   top: -50px;
 `;
 
+const GET_MOVIES = gql`
+  {
+    movies {
+      id
+      medium_cover_image
+    }
+  }
+`;
+
 const Home = () => {
   const { loading, data } = useQuery(GET_MOVIES);
+  console.log(data);
   return (
     <Container>
       <Header>

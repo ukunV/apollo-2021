@@ -4,19 +4,6 @@ import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 import styled from "styled-components";
 
-const GET_MOVIE = gql`
-  query getMovie($id: Int!) {
-    movie(id: $id) {
-      id
-      title
-      medium_cover_image
-      language
-      rating
-      description_intro
-    }
-  }
-`;
-
 const Container = styled.div`
   height: 100vh;
   background-image: linear-gradient(-45deg, #d754ab, #fd723a);
@@ -53,6 +40,19 @@ const Poster = styled.div`
   background-image: url(${(props) => props.bg});
   background-size: cover;
   background-position: center center;
+`;
+
+const GET_MOVIE = gql`
+  query getMovie($id: Int!) {
+    movie(id: $id) {
+      id
+      title
+      medium_cover_image
+      language
+      rating
+      description_intro
+    }
+  }
 `;
 
 const Detail = () => {
